@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:TextilCorpMovil.Models"
+             x:Class="TextilCorpMovil.Views.ProductosPage"
+             Title="ProductosPage">
+    <ContentPage.BindingContext>
+        <models:Productos />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <Label Text="Litas de Productos" FontSize="Title" Padding="30,10,30,10" />
+            <SearchBar x:Name="Buscador" 
+                   Placeholder="Ingrese un Id" 
+                   TextColor="Black"/>
+            <Button Text="Productos" 
+                Clicked="Productos"/>
+            <CollectionView x:Name="Lista"
+                        SelectionMode="Single"
+                        SelectionChanged="CollectionView_SelectionChanged" VerticalOptions="Center" HorizontalOptions="Center">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Productos">
+                        <VerticalStackLayout>
+                            <Label Text="ID de Producto: " VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                            <Label Text="{Binding productosId}" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                            <Label Text="Precio: " VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                            <Label Text="{Binding precio}" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                            <Label Text="Descripcion: " VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                            <Label Text="{Binding descripcion}" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                            <Image Source="{Binding imagen}" HeightRequest="200" WidthRequest="200" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Comprar" 
+                Clicked="Comprar"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

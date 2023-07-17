@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:TextilCorpMovil.Models"
+             x:Class="TextilCorpMovil.Views.UsuariosPage"
+             Title="UsuariosPage">
+    <ContentPage.BindingContext>
+        <models:Usuarios />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout VerticalOptions="Center">
+            <Frame Padding=".3,.1,.3,.1" HorizontalOptions="Center">
+                <Label Text="Usuarios" FontSize="Title" Padding="30,10,30,10" />
+            </Frame>
+            <Frame Padding="30,10,30,10" WidthRequest="300" HorizontalOptions="Center">
+                <VerticalStackLayout>
+                    <Entry x:Name="Usuario" Placeholder="Ingrese el usuario"/>
+                    <Entry x:Name="Clave" Placeholder="Ingrese su contraseña" IsPassword="True"/>
+                    <Button Text="Ingresar" Clicked="Ingresar"/>
+                    <Entry x:Name="Nombres" Placeholder="Ingrese los nombres"/>
+                    <Entry x:Name="Apellidos" Placeholder="Ingrese los apellidos"/>
+                    <Entry x:Name="Correo" Placeholder="Ingrese el correo"/>
+                    <Entry x:Name="Contraseña" Placeholder="Ingrese la contraseña" IsPassword="True"/>
+                    <Entry x:Name="Direccion" Placeholder="Ingrese la direccion"/>
+                    <Entry x:Name="Telefono" Placeholder="Ingrese el telefono"/>
+                    <Button Text="Registrar" Clicked="Registrar"/>
+                </VerticalStackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
